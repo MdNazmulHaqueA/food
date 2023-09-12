@@ -42,6 +42,8 @@ html {
 .section-1-icons i {
   font-size: 35rem;
   color: #a79a2d;
+  /* making the icons centered and hidden */
+  /* By default, the scale function has the value set to one, and in order to hide the elements, we need to set the scale to zero. So now the icons are hidden. */
   position: absolute;
   transform: translate(-50%, -50%) scale(0);
   /* text-align: center; ->works */
@@ -50,6 +52,7 @@ html {
   transition: transform 0.3s;
 }
 
+/* making the icon one visible */
 .section-1-icons i.change {
   transform: translate(-50%, -50%) scale(1);
   transition: transform 0.3s 0.3s;
@@ -80,7 +83,40 @@ html {
   justify-content: space-between;
   align-items: center;
   box-shadow: 1rem 1rem 1rem #000;
+  position: relative;
+  transform: rotateY(20deg) skewX(-2deg);
+  transition: transform 0.5s, box-shadow 0.5s;
+  /* transition: all 0.5s */
 }
+.card:hover {
+  transform: rotateY(20deg) skewX(-2deg) translateY(-3rem);
+  box-shadow: 3rem 3rem 3rem #000;
+}
+.card::before {
+  content: "";
+  height: 100%;
+  width: 1rem;
+  background-color: #817824;
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  transform: skewY(45deg);
+  transform-origin: right;
+  box-shadow: -0.1rem -0.1rem 0.1rem #000;
+}
+.card::after {
+  content: "";
+  height: 1rem;
+  width: 100%;
+  background-color: #8f8317;
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  transform: skewX(45deg);
+  transform-origin: bottom;
+  box-shadow: -0.1rem -0.1rem 0.1rem #000;
+}
+
 .card-img {
   width: 100%;
 }
